@@ -1,0 +1,14 @@
+.cpcache/
+.nrepl-port
+
+*.bak
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
+.calva
