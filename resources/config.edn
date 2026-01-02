@@ -1,7 +1,7 @@
 {
   :web/server {
     :port #long #or [#env CLJWEBAPI_PORT 8080]
-    :join? false
+    :join? #profile {:default true, :dev false}
     :router #ig/ref :web/router
   }
   :web/router {

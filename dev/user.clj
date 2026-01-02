@@ -15,7 +15,7 @@
     [integrant.repl.state :as state]))
 
 (comment
-  (set-prep! (fn [] (-> (config/get-config)
+  (set-prep! (fn [] (-> (config/get-config :dev)
                         (select-keys [:web/server :web/router :db/mysql]))))
   state/config (keys state/config)
   (-> state/system :web/router :router r/compiled-routes) (keys state/system) (get-in state/system [:web/server :db])

@@ -9,9 +9,11 @@
   (ig/ref value))
 
 (defn get-config
-  []
-  (aero/read-config (io/resource "config.edn")))
+  ([]
+   (get-config :prod))
+  ([profile]
+   (aero/read-config (io/resource "config.edn") {:profile profile})))
 
-(def config
+(def config ;; :prod config cache
   (get-config))
 
