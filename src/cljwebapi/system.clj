@@ -1,6 +1,8 @@
 (ns cljwebapi.system
   (:require
     [cljwebapi.db]
+    [cljwebapi.auth.account-service.in-memory]
+    [cljwebapi.auth]
     [cljwebapi.router]
     [cljwebapi.server]
     [integrant.core :as ig]))

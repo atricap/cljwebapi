@@ -11,3 +11,12 @@
    [:users/full_name :string]
    [:users/authorities [:sequential :string]]])
 
+(def LoginRequest
+  [:map
+   [:email :string]
+   [:password :string]])
+
+(def LoginResponse
+  [:map
+   [:token :string]])
+

@@ -6,11 +6,19 @@
   }
   :web/router {
     :db #ig/ref :db/mysql
+    :auth #ig/ref :auth/jwt
   }
   :db/mysql #merge [{
     :jdbcUrl "jdbc:mysql://localhost:3306/tododb?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false"
   } #include "secrets-db.edn"]
-  #_:auth/jwt #_ #merge [{
-    :expiration 900000
+  :auth/jwt #merge [{
+    :issuer "https://cljwebapi.atricap.de"
+    :expiration 900
+    :account-service #ig/ref :auth.account-service/in-memory
   } #include "secrets-jwt.edn"]
+  #_:auth.account-service/db #_{
+    :db #ig/ref :db/mysql
+  }
+  :auth.account-service/in-memory {
+  }
 }
